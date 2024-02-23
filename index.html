@@ -12,13 +12,26 @@
       <input
         type="text"
         name=""
-        id="inputText"
+        id="inputVal"
         placeholder="Input Text or URL"
       />
-      <div id="qrImg"></div>
-      <button id="btnGenerate">Generator QR Code</button>
-    </div>
+      <div id="imgBox">
+        <img src="" id="qrImg" />
+      </div>
 
-    <script src="app.js"></script>
+      <button onclick="generateQR()" id="btnGenerate">Generator QR Code</button>
+
+      <script>
+        let imgBox = document.getElementById("imgBox");
+        let qrImg = document.getElementById("qrImg");
+        let inputVal = document.getElementById("inputVal");
+
+        function generateQR() {
+          qrImg.src =
+            "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+            inputVal.value;
+        }
+      </script>
+    </div>
   </body>
 </html>
